@@ -1,7 +1,7 @@
 <template lang="html">
   <div id="form">
-    <card-view :number-card="number"/>
-    <form-inputs @cardNumber="cardNumber"></form-inputs>
+    <card-view :number-card="data.cardNumber | splitString()"/>
+    <form-inputs @data="getData"></form-inputs>
   </div>
 
 </template>
@@ -18,16 +18,22 @@
         },
         data(){
           return {
-            number: '',
+            data: ['123'],
 
           }
         },
         methods: {
-          cardNumber(data){
-            this.number = data;
-          }
+          getData(data){
+
+            this.data = data;
+          },
+
         },
         filters: {
+          splitString(ar) {
+            if (ar) return ar.split(' ');
+            return ['####','####','####','####']
+          }
         }
     }
 </script>

@@ -29,11 +29,25 @@
                     return words.target.value += " "
                 }
 
+            },
+
+            giveData(){
+                this.$emit('data', {
+                    cardNumber: this.cardNumber,
+                    cardTime: this.cardTime,
+                    cardCVC: this.cardCVC
+                })
             }
         },
         watch: {
             cardNumber: function () {
-                this.$emit('cardNumber', this.cardNumber)
+               this.giveData()
+            },
+            cardTime: function () {
+                this.giveData()
+            },
+            cardCVC: function () {
+                this.giveData()
             }
         }
     }
