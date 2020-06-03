@@ -1,7 +1,7 @@
 <template lang="html">
   <div id="form">
-    <card-view :number-card="['####', '####', '####', '####']"/>
-    <form-inputs></form-inputs>
+    <card-view :number-card="number"/>
+    <form-inputs @cardNumber="cardNumber"></form-inputs>
   </div>
 
 </template>
@@ -15,6 +15,19 @@
         components: {
             cardView,
             formInputs
+        },
+        data(){
+          return {
+            number: '',
+
+          }
+        },
+        methods: {
+          cardNumber(data){
+            this.number = data;
+          }
+        },
+        filters: {
         }
     }
 </script>

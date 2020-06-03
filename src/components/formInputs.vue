@@ -31,7 +31,11 @@
 
             }
         },
-
+        watch: {
+            cardNumber: function () {
+                this.$emit('cardNumber', this.cardNumber)
+            }
+        }
     }
 </script>
 
@@ -39,7 +43,7 @@
   .form-container
     display: grid
     grid:
-      template: repeat(2, minmax(65px, 1fr)) / 0.5fr minmax(10px, 0.05fr)  0.5fr
+      template: repeat(2, minmax(65px, 1fr)) / 0.5fr minmax(10px, 0.05fr) 0.5fr
     grid-row-gap: 15px
 
     &__number
