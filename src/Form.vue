@@ -1,6 +1,6 @@
 <template>
   <div id="form">
-    <card-view/>
+    <card-view al="hello" :number-card="numberCard"/>
 
   </div>
 
@@ -14,7 +14,11 @@ export default {
   name: 'new',
   components: {
     cardView
-
+  },
+  data(){
+    return {
+      numberCard: ['####','####','####','####']
+    }
   }
 }
 </script>

@@ -21,7 +21,7 @@
         name: "cardView",
         data() {
             return {
-                numberCard: ['####','####','####','####'],
+
                 cardName: 'Ваша карта',
                 cardDate: '00/00',
                 cardholder: 'Mikhail Malakhow',
@@ -31,11 +31,14 @@
                     '0002' : 'Avito'
                 },
 
-                props: {
 
-                }
 
             }
+        },
+        props: {
+            al: String,
+            numberCard: Object,
+
         },
         methods: {},
         watch: {
