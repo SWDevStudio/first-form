@@ -1,0 +1,4 @@
+@function convertLong($long, $bigLong : 2962px, $smallLong : 600px) {
+  $k : $smallLong / $bigLong;
+  @return $long * $k
+}
