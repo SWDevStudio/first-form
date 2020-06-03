@@ -4,14 +4,14 @@
             <img src="../assets/card.png" alt="">
         </div>
         <div class="card-view__content">
-            <div class="card-view__name">Master Card</div>
+            <div class="card-view__name">{{cardName}}</div>
             <ul class="card-view__number">
                 <li class="card-view__number-item" v-for="item in numberCard" :key="item">
                     {{item}}
                 </li>
             </ul>
-            <div class="card-view__date">12/99</div>
-            <div class="card-view__cardholder">Mikhail Malakhow</div>
+            <div class="card-view__date">{{cardDate}}</div>
+            <div class="card-view__cardholder">{{cardholder}}</div>
         </div>
     </div>
 </template>
@@ -21,12 +21,30 @@
         name: "cardView",
         data() {
             return {
-                numberCard: [
-                    '####','####','####','####'
-                ]
+                numberCard: ['####','####','####','####'],
+                cardName: 'Ваша карта',
+                cardDate: '00/00',
+                cardholder: 'Mikhail Malakhow',
+                cards: {
+                    '0000' : 'Master Card',
+                    '0001' : 'Keter',
+                    '0002' : 'Avito'
+                },
+
+                props: {
+
+                }
+
             }
         },
         methods: {},
+        watch: {
+            numberCard: function () {
+                if (Object.keys(this.cards).indexOf(this.numberCard[0], 0) !== -1) {
+                    this.cardName = this.cards[this.numberCard[0]]
+                }
+            }
+        }
 
     }
 </script>
