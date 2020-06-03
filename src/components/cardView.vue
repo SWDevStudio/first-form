@@ -36,7 +36,6 @@
             }
         },
         props: {
-            al: String,
             numberCard: Object,
 
         },
