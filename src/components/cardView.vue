@@ -22,7 +22,6 @@
         data() {
             return {
                 cardName: 'Ваша карта',
-                cardDate: '00/00',
                 cardholder: 'Mikhail Malakhow',
                 cards: {
                     '0000': 'Master Card',
@@ -33,15 +32,16 @@
         },
         props: {
             numberCard: Array,
+            cardDate: String
 
         },
         methods: {},
         watch: {
-            // numberCard: function () {
-            //     if (Object.keys(this.cards).indexOf(this.numberCard[0], 0) !== -1) {
-            //         this.cardName = this.cards[this.numberCard[0]]
-            //     }
-            // }
+            numberCard: function () {
+                if (Object.keys(this.cards).indexOf(this.numberCard[0], 0) !== -1) {
+                    this.cardName = this.cards[this.numberCard[0]]
+                }
+            }
         }
 
     }

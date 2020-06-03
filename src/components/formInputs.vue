@@ -15,8 +15,8 @@
         name: "formInputs",
         data() {
             return {
-                cardNumber: [],
-                cardTime: [],
+                cardNumber: '',
+                cardTime: '',
                 cardCVC: []
             }
         },
