@@ -31,7 +31,11 @@
 
             }
         },
-
+        watch: {
+            cardNumber: function () {
+                this.$emit('cardNumber', this.cardNumber)
+            }
+        }
     }
 </script>
 
@@ -101,8 +105,10 @@
 
     &__input
       flex-grow: 1
+      height: 90%
       font-family: Georgia, Arial, sans-serif
       font-size: 15px
+      padding-left: 25px
       border: 0
       border-radius: 50px
       box-shadow: 0 0 2px grey
@@ -113,6 +119,5 @@
 
       &:hover, &:focus
         box-shadow: 0 0 10px 1px cornflowerblue
-
 
 </style>
