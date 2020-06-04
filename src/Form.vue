@@ -2,7 +2,8 @@
     <div id="form">
         <card-view
                 :number-card="data.cardNumber | splitString()"
-                :card-date="data.cardTime"
+                :card-date="data.cardTime | startTime()"
+                :card-cvc="data.cardCvc | startCvc()"
         />
         <form-inputs @data="getData"></form-inputs>
     </div>
@@ -40,8 +41,14 @@
                 if (ar) return ar.split(' ');
                 return ['####', '####', '####', '####']
             },
-
-
+            startTime(ar) {
+                if (ar) return ar;
+                return "## / ##"
+            },
+            startCvc(ar) {
+                if (ar) return ar;
+                return "###"
+            },
         }
     }
 </script>

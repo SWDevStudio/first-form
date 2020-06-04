@@ -5,7 +5,7 @@
     label.form-container__date
       input.form-container__input.form-container__input-date(placeholder="ММ / ГГ" v-mask="'## / ##'" v-model="cardTime")
     label.form-container__cvc
-      input.form-container__input.form-container__input-cvc(placeholder="CVC" v-mask="'####'" v-model="cardCVC")
+      input.form-container__input.form-container__input-cvc(placeholder="CVC" v-mask="'####'" v-model="cardCvc")
 </template>
 
 <script>
@@ -17,25 +17,15 @@
             return {
                 cardNumber: '',
                 cardTime: '',
-                cardCVC: []
+                cardCvc: ''
             }
         },
         methods: {
-            card(words) {
-                console.log(words.target);
-                this.numberOfLetters++;
-                if (this.numberOfLetters > 4) {
-                    this.numberOfLetters = 0;
-                    return words.target.value += " "
-                }
-
-            },
-
             giveData(){
                 this.$emit('data', {
                     cardNumber: this.cardNumber,
                     cardTime: this.cardTime,
-                    cardCVC: this.cardCVC
+                    cardCvc: this.cardCvc
                 })
             }
         },
@@ -46,7 +36,7 @@
             cardTime: function () {
                 this.giveData()
             },
-            cardCVC: function () {
+            cardCvc: function () {
                 this.giveData()
             }
         }

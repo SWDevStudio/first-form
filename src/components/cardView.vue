@@ -1,18 +1,13 @@
 <template>
     <div class="card-view">
-        <div class="card-view__image">
-            <img src="../assets/card.png" alt="">
-        </div>
-        <div class="card-view__content">
-            <div class="card-view__name">{{cardName}}</div>
-            <ul class="card-view__number">
-                <li class="card-view__number-item" v-for="(item,i) in numberCard" :key="i">
-                    {{item}}
-                </li>
-            </ul>
-            <div class="card-view__date">{{cardDate}}</div>
-            <div class="card-view__cardholder">{{cardholder}}</div>
-        </div>
+        <div class="card-view__name">{{cardName}}</div>
+        <ul class="card-view__number">
+            <li class="card-view__number-item" v-for="(item,i) in numberCard" :key="i">
+                {{item}}
+            </li>
+        </ul>
+        <div class="card-view__date">{{cardDate}}</div>
+        <div class="card-view__cvc">{{cardCvc}}</div>
     </div>
 </template>
 
@@ -22,18 +17,18 @@
         data() {
             return {
                 cardName: 'Ваша карта',
-                cardholder: 'Mikhail Malakhow',
                 cards: {
                     '0000': 'Master Card',
                     '0001': 'Keter',
                     '0002': 'Avito'
                 },
+
             }
         },
         props: {
             numberCard: Array,
-            cardDate: String
-
+            cardDate: String,
+            cardCvc: String
         },
         methods: {},
         watch: {
@@ -52,41 +47,51 @@
     @import "../service/fonts.scss";
 
     .card-view {
-        position: relative;
-        width: 800px;
-        height: 600px;
-
-        &__content {
-            width: 82%;
-            margin: 0 auto;
-            padding-top: convertLong(217px);
-        }
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        min-height: 250px;
+        min-width: 400px;
+        max-width: 400px;
+        margin-bottom: 30px;
+        background-image: url("../assets/card.png");
+        background-size: contain;
+        background-repeat: no-repeat;
 
         &__name {
+            padding-right: 20px;
             text-align: end;
-            margin-bottom: convertLong(800px);
             font-family: 'Miryad', 'sans-serif';
-            font-size: 40px;
+            font-size: 30px;
+            font-weight: 300;
+            color: whitesmoke;
         }
 
         &__number {
-            margin-left: 0;
-            padding-left: 0;
-            margin-bottom: convertLong(260px);
             font-family: 'Audiowide', 'sans-serif';
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
+            margin: 70px 0 0;
+            padding: 0;
             list-style-type: none;
-            font-size: 36px;
-
-
+            font-size: 25px;
+            color: white;
         }
 
         &__date {
+            margin-left: 20px;
             text-align: center;
-            font-size: 30px;
+            font-size: 20px;
             font-family: 'Audiowide', 'sans-serif';
-            margin-bottom: convertLong(219px);
+            color: aliceblue;
+        }
+
+        &__cvc {
+            padding-right: 20px;
+            text-align: end;
+            font-size: 20px;
+            font-family: 'Audiowide', 'sans-serif';
+            color: aliceblue;
         }
 
         &__cardholder {
