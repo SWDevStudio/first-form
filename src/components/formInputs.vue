@@ -39,7 +39,9 @@
   .form-container
     display: grid
     grid:
-      template: repeat(2, minmax(65px, 1fr)) / 0.5fr minmax(10px, 0.05fr)  0.5fr
+      template:
+        rows: repeat(2, minmax(65px, 1fr))
+        columns: 0.5fr minmax(10px, 0.05fr)  0.5fr
     grid-row-gap: 15px
 
     &__number
@@ -48,7 +50,7 @@
       flex-direction: column
       grid:
         row: 1 / 2
-        column: span 4
+        column: 1 / -1
       text-align: center
 
       &::before
@@ -84,7 +86,7 @@
       position: relative
       grid:
         row: 2 / 3
-        column: 3 / 5
+        column: 3 / 4
       text-align: center
 
       &::before
@@ -99,16 +101,18 @@
 
     &__input
       flex-grow: 1
-      height: 90%
       font-family: Georgia, Arial, sans-serif
       font-size: 15px
-      padding-left: 25px
       border: 0
       border-radius: 50px
       box-shadow: 0 0 2px grey
       outline: none
 
+      &:placeholder-shown
+        padding-left: 25px
+
       &:hover, &:focus
         box-shadow: 0 0 10px 1px cornflowerblue
+
 
 </style>
